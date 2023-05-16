@@ -7,7 +7,6 @@ import pandas as pd
 
 info = ef.futures.get_futures_base_info()
 
-
 # get main contract name and code
 
 class Get_data:
@@ -44,12 +43,3 @@ class Get_data:
         return df
 
 
-# select sugar cotton corn soybeans wheat
-code_list = ['SRM', 'CFM', 'cm', 'am', 'WHM']
-get_data = Get_data(begin_date='20150101',end_date = '20230430')
-all_data = get_data.get_all_main_future_data()
-
-all_data.to_csv("./main_contract.csv", encoding = 'gbk')
-
-select_df = all_data[all_data['code'].isin(code_list)]
-select_df.to_csv("./select_contract.csv", encoding = 'gbk')
