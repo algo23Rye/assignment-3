@@ -299,56 +299,9 @@ class LSTM_Prediction:
                 loss.backward()
                 optimizer.step()
             print(loss)
-            print(i)
-
             model.eval()
             pred_test_y = model(test_x)
             outcome.iloc[i - start_train_end, 0] = pred_test_y.detach().cpu().numpy().squeeze()[-1]
             outcome.iloc[i - start_train_end, 1] = test_y.detach().cpu().numpy().squeeze()[-1]
             # outcome.to_csv("prediction for " + future_name + ".csv")
         return outcome
-
-#
-# # train one by one and input_size is decided by the Pearsonr
-# params = hyperparams()
-# params.n1 = 1
-# # params.epochs, params.learning_rate = [500, 0.001] cm srm
-# params.epochs, params.learning_rate = [800, 0.001]
-# params.device, = [torch.device("cuda:0" if torch.cuda.is_available() else "cpu")]
-# params.seq_len = 22
-# params.hidden_size1 = 128
-# params.dropout_rate = 0.2
-# params.hidden_size2 = 256
-# # params.hidden_size3 = 256
-# # params.hidden_size4 = 256
-# # params.hidden_size5 = 128
-# # params.hidden_size6 = 128
-#
-# features = pd.read_csv("./indicators_standardized.csv", index_col = [0, 1], parse_dates = True)
-# data_price = pd.read_csv("./select_contract.csv", index_col = ['code', 'date'], parse_dates = True,
-#                          encoding = 'gbk')
-# pre = LSTM_Prediction(features, data_price)
-#
-# # n1 day ahead
-# # for future_name in data_price.index.levels[0].unique():
-# #     features, obj = pre.feature_select(params.n1, future_name)
-# #     params.input_size = len(features.columns)
-# #     outcome = Lstm_Prediction.expanding_pred(params, features, obj, future_name)
-# #     (outcome.dropna().droplevel(0).astype(float)).plot()
-# #     plt.title(future_name)
-# #     plt.show()
-# #     outcome_all = pd.concat([outcome_all, outcome], axis = 0)
-# # 'CFM', 'cm', 'am', 'WHM'
-#
-# for future_name in ['am', 'WHM']:
-#     pre.get_return_as_objective(params.n1, 'close')
-#     # pre.get_price_as_objective(params.n1, 'close')
-#     features, obj = pre.feature_select(future_name)
-#     params.input_size = len(features.columns)
-#     outcome = LSTM_Prediction.rolling_pred(params, features, obj, future_name)
-#     # outcome = LSTM_Prediction.split_pred(params, features, obj, future_name)
-#     (outcome.dropna().droplevel(0).astype(float)).plot()
-#     plt.title(future_name)
-#     plt.show()
-#     plt.savefig(future_name + ".rolling_pre.png")
-#     outcome.to_csv("prediction for " + future_name + ".rolling_pre.csv")
