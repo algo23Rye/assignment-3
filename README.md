@@ -16,7 +16,6 @@ Machine Learning*，但我主要参考的是论文中因子的构建和处理以
 
 1. 均方误差
 
-
 |     | mean square error |
 | --- | ----------------- |
 | SRM | 0.0107            |
@@ -27,12 +26,12 @@ Machine Learning*，但我主要参考的是论文中因子的构建和处理以
 
 2. 由所预测的收益率转化成的净值曲线
 
-   ![ampredictionnav.png](Image/am prediction nav.png?t=1684324695874)
+![ampredictionnav.png](Image/am prediction nav.png?t=1684325099721)
 
-   ![CFMpredictionnav.png](Image/CFM prediction nav.png?t=1684324714377)
+![cmpredictionnav.png](Image/cm prediction nav.png?t=1684325136684)
 
-   ![cmpredictionnav.png](Image/cm prediction nav.png?t=1684324728187)
+![CFMpredictionnav.png](Image/CFM prediction nav.png?t=1684325114114)
 
-   ![SRMpredictionnav.png](Image/SRM prediction nav.png?t=1684324742259)
+![WHMpredictionnav.png](Image/WHM prediction nav.png?t=1684325163353)
 
-   ![WHMpredictionnav.png](Image/WHM prediction nav.png?t=1684324755897)
+![SRMpredictionnav.png](Image/SRM prediction nav.png?t=1684325152332)
