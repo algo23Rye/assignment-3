@@ -19,7 +19,7 @@ class Evaluation:
         nav.droplevel(0).plot()
         plt.legend()
         plt.title(nav.index[0][0])
-        plt.savefig(image_path + nav.index[0][0]+" prediction nav.png")
+        plt.savefig(image_path + nav.index[0][0]+"_prediction_nav.png")
 
     @staticmethod
     def get_square_error(outcome: DataFrame):
